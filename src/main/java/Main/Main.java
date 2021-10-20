@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -48,6 +49,8 @@ class Main {
 	private static final String DOM_XML_FILE = "xml/EmpleadosDOM.xml";
 
 	private static MedicamentoAleatorio mA = new MedicamentoAleatorio();
+	private static Scanner sc = new Scanner(System.in);
+	private static Scanner sn = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		// ejemploJaxb();
@@ -55,8 +58,47 @@ class Main {
 		// ejemploLeerDOM();
 		// ejemploEscribirXSTREAM();
 		// ejemploLeerXSTREAM();
-		Medicamento medicamento = new Medicamento("Ibu", 12,0, 0, 128, 5, 021);
-		mA.guardar(medicamento);
+		int opc = 0;
+		String opcString ="";
+
+		do {
+			System.out.println("*****\n Intoduzca una opción: *****");
+			System.out.println("1. Añadir un medicamento.");
+			opcString =  sc.nextLine();
+
+			if (esNumero(opcString)){
+				opc = Integer.parseInt(opcString);
+
+				switch (opc){
+					case 1:
+						System.out.println("Introduzca el nombre del medicamento: ");
+						String nombreMedicamento = sc.nextLine();
+						System.out.println("Introduzca el precio del medicamento: ");
+						double precioMedicamento = sn.nextDouble();
+
+
+
+						Medicamento medicamento = new Medicamento(nombreMedicamento, precioMedicamento,0, 0, 128, 5, 021);
+						mA.guardar(medicamento);
+						break;
+					case 2:
+						System.out.println("Adiós");
+						System.exit(0);
+						break;
+					default:
+						System.out.println("Opción no válida");
+						break;
+				}
+			}else {
+				System.out.println("Introduzca un número válido");
+			}
+
+
+		}while (opc != 5);
+	}
+
+	private static boolean esNumero(String numero) {
+		return numero.chars().allMatch(Character::isDigit);
 	}
 
 	private static void ejemploEscribirXSTREAM() {
@@ -66,7 +108,7 @@ class Main {
 			System.out.println("Comienza el proceso de creación del fichero a XML...");
 
 			XStream xstream = new XStream();
-			
+
 			long time = System.currentTimeMillis();
 			System.out.println("Inicio: " + new Date(time));
 			Empresa cc = new Empresa();
@@ -90,7 +132,7 @@ class Main {
 			}
 
 			cc.setEmpleados(alCU);
-			
+
 			// cambiar de nombre a las etiquetas XML
 			xstream.alias("Empleado", Empleado.class);
 			xstream.alias("Empresa", Empresa.class);
@@ -108,27 +150,27 @@ class Main {
 
 	private static void ejemploLeerXSTREAM() {
 		Empresa empresa = new Empresa();
-        try {
-            Class<?>[] classes = new Class[] { Empresa.class, Empleado.class };
+		try {
+			Class<?>[] classes = new Class[] { Empresa.class, Empleado.class };
 
-            XStream xstream = new XStream();
-            //XStream.setupDefaultSecurity(xstream);
-            //xstream.allowTypes(classes);
-           
-            xstream.alias("Empresa", Empresa.class);
-            xstream.alias("Empleado", Empleado.class);
-            xstream.addImplicitCollection(Empresa.class, "Empresa");
+			XStream xstream = new XStream();
+			//XStream.setupDefaultSecurity(xstream);
+			//xstream.allowTypes(classes);
 
-            empresa = (Empresa) xstream
-                    .fromXML(new FileInputStream(XSTREAM_XML_FILE));
+			xstream.alias("Empresa", Empresa.class);
+			xstream.alias("Empleado", Empleado.class);
+			xstream.addImplicitCollection(Empresa.class, "Empresa");
 
-            for(Empleado e: empresa.getEmpleados()) {
-            	System.out.println(e);
-            }
+			empresa = (Empresa) xstream
+					.fromXML(new FileInputStream(XSTREAM_XML_FILE));
 
-        } catch (FileNotFoundException e) {
-            System.err.println("Error: " + e);
-        }
+			for(Empleado e: empresa.getEmpleados()) {
+				System.out.println(e);
+			}
+
+		} catch (FileNotFoundException e) {
+			System.err.println("Error: " + e);
+		}
 
 	}
 
