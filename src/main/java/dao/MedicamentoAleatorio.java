@@ -1,5 +1,7 @@
 package dao;
 
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.List;
 
 import modelo.Medicamento;
