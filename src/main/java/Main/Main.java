@@ -51,6 +51,8 @@ class Main {
 		// ejemploLeerDOM();
 		// ejemploEscribirXSTREAM();
 		// ejemploLeerXSTREAM();
+		Medicamento medicamento = new Medicamento("Ibu", 12,0, 0, 128, 5, 021);
+		mA.guardar(medicamento);
 	}
 
 	private static void ejemploEscribirXSTREAM() {
