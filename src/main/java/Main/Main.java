@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,7 +23,9 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import dao.FarmaciaDOM;
 import dao.MedicamentoAleatorio;
+import modelo.Farmacia;
 import modelo.Medicamento;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
@@ -48,7 +51,7 @@ class Main {
 	private static final String DOM_XML_FILE = "xml/EmpleadosDOM.xml";
 
 	private static MedicamentoAleatorio mA = new MedicamentoAleatorio();
-
+	private static Farmacia mF = new Farmacia();
 	public static void main(String[] args) {
 		// ejemploJaxb();
 		// ejemploEscribirDOM();
@@ -57,6 +60,11 @@ class Main {
 		// ejemploLeerXSTREAM();
 		Medicamento medicamento = new Medicamento("Ibu", 12,0, 0, 128, 5, 021);
 		mA.guardar(medicamento);
+
+		FarmaciaDOM far = new FarmaciaDOM();
+		//far.guardar(mF);
+		Path path = Paths.get("c:\\data\\myfile.txt");
+		far.leer(path);
 	}
 
 	private static void ejemploEscribirXSTREAM() {
