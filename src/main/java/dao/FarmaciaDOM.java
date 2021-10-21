@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 import modelo.Farmacia;
+import modelo.Medicamento;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
@@ -20,12 +21,12 @@ public class FarmaciaDOM{
 	/**
 	 * Lee los medicamentos de la farmacia de un fichero xml
 	 * mediante DOM
-	 * @param
+	 * @paramfarmacia
 	 * @return
 	 */
-	public boolean leer(Path farmaciaXML) {
+	public Farmacia leer(Path farmaciaXML) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-
+		Farmacia farmacia = new Farmacia();
 		DocumentBuilder builder;
 		try {
 			builder = factory.newDocumentBuilder();
@@ -58,7 +59,7 @@ public class FarmaciaDOM{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
+		return farmacia;
 		
 	}
 
@@ -71,7 +72,7 @@ public class FarmaciaDOM{
 	/**
 	 * Guarda los medicamentos de la farmacia en un fichero XML 
 	 * mediamente DOM
-	 * @param farmacia
+	 * @paramfarmacia
 	 * @return
 	 */
 	public boolean guardar(Farmacia farmacia) {
@@ -85,18 +86,18 @@ public class FarmaciaDOM{
 			Document document = implementation.createDocument(null, "Medicamentos", null);
 			document.setXmlVersion("1.0"); // asignamos la version de nuestro XML
 
-			for (int i = 1; i < 10; i++) {
+			for (Medicamento med: farmacia.getMedicamentos()) {
 				Element raiz = document.createElement("medicamento");
 
 				document.getDocumentElement().appendChild(raiz);
 
-				CrearElemento("cod", Integer.toString(i), raiz, document);
-				CrearElemento("nombre", "medicamento " + i, raiz, document);
-				CrearElemento("precio", "5.68", raiz, document);
-				CrearElemento("stock", "1000", raiz, document);
-				CrearElemento("stockMaximo", "1500", raiz, document);
-				CrearElemento("stockMinimo", "500", raiz, document);
-				CrearElemento("codProveedor", ""+i, raiz, document);
+				CrearElemento("cod", String.valueOf(med.getCod()), raiz, document);
+				CrearElemento("nombre", med.getNombre(), raiz, document);
+				CrearElemento("precio", String.valueOf(med.getPrecio()), raiz, document);
+				CrearElemento("stock", String.valueOf(med.getStock()), raiz, document);
+				CrearElemento("stockMaximo", String.valueOf(med.getStockMaximo()), raiz, document);
+				CrearElemento("stockMinimo", String.valueOf(med.getStockMinimo()), raiz, document);
+				CrearElemento("codProveedor", String.valueOf(med.getCodProveedor()), raiz, document);
 			}
 
 			// Creamos la fuente XML a partir del documento
@@ -112,19 +113,19 @@ public class FarmaciaDOM{
 			transformer.transform(source, result);
 			// Mostramos el documento por pantalla especificando el canal de salida el
 			// System.out
-			Result console = new StreamResult(System.out);
-
-			transformer.transform(source, console);
+			//Result console = new StreamResult(System.out);
+			//transformer.transform(source, console);
 
 		} catch (TransformerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return false;
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		return false;
+		return true;
 		
 	}
 

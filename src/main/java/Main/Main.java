@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -51,7 +52,7 @@ class Main {
 	private static final String DOM_XML_FILE = "xml/EmpleadosDOM.xml";
 
 	private static MedicamentoAleatorio mA = new MedicamentoAleatorio();
-	private static Farmacia mF = new Farmacia();
+
 	public static void main(String[] args) {
 		// ejemploJaxb();
 		// ejemploEscribirDOM();
@@ -59,12 +60,16 @@ class Main {
 		// ejemploEscribirXSTREAM();
 		// ejemploLeerXSTREAM();
 		Medicamento medicamento = new Medicamento("Ibu", 12,0, 0, 128, 5, 021);
-		mA.guardar(medicamento);
+		//mA.guardar(medicamento);
 
-		FarmaciaDOM far = new FarmaciaDOM();
-		//far.guardar(mF);
-		Path path = Paths.get("c:\\data\\myfile.txt");
-		far.leer(path);
+
+		List<Medicamento> medicamentos = new ArrayList<>();
+		medicamentos.add(medicamento);
+
+		Farmacia farmacion = new Farmacia();
+		farmacion.setMedicamentos(medicamentos);
+		FarmaciaDOM farmDOM = new FarmaciaDOM();
+		farmDOM.guardar(farmacion);
 	}
 
 	private static void ejemploEscribirXSTREAM() {

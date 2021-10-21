@@ -1,84 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Medicamentos>
     <medicamento>
-        <cod>1</cod>
-        <nombre>medicamento 1</nombre>
-        <precio>5.68</precio>
-        <stock>1000</stock>
-        <stockMaximo>1500</stockMaximo>
-        <stockMinimo>500</stockMinimo>
-        <codProveedor>1</codProveedor>
-    </medicamento>
-    <medicamento>
-        <cod>2</cod>
-        <nombre>medicamento 2</nombre>
-        <precio>5.68</precio>
-        <stock>1000</stock>
-        <stockMaximo>1500</stockMaximo>
-        <stockMinimo>500</stockMinimo>
-        <codProveedor>2</codProveedor>
-    </medicamento>
-    <medicamento>
-        <cod>3</cod>
-        <nombre>medicamento 3</nombre>
-        <precio>5.68</precio>
-        <stock>1000</stock>
-        <stockMaximo>1500</stockMaximo>
-        <stockMinimo>500</stockMinimo>
-        <codProveedor>3</codProveedor>
-    </medicamento>
-    <medicamento>
-        <cod>4</cod>
-        <nombre>medicamento 4</nombre>
-        <precio>5.68</precio>
-        <stock>1000</stock>
-        <stockMaximo>1500</stockMaximo>
-        <stockMinimo>500</stockMinimo>
-        <codProveedor>4</codProveedor>
-    </medicamento>
-    <medicamento>
-        <cod>5</cod>
-        <nombre>medicamento 5</nombre>
-        <precio>5.68</precio>
-        <stock>1000</stock>
-        <stockMaximo>1500</stockMaximo>
-        <stockMinimo>500</stockMinimo>
-        <codProveedor>5</codProveedor>
-    </medicamento>
-    <medicamento>
-        <cod>6</cod>
-        <nombre>medicamento 6</nombre>
-        <precio>5.68</precio>
-        <stock>1000</stock>
-        <stockMaximo>1500</stockMaximo>
-        <stockMinimo>500</stockMinimo>
-        <codProveedor>6</codProveedor>
-    </medicamento>
-    <medicamento>
-        <cod>7</cod>
-        <nombre>medicamento 7</nombre>
-        <precio>5.68</precio>
-        <stock>1000</stock>
-        <stockMaximo>1500</stockMaximo>
-        <stockMinimo>500</stockMinimo>
-        <codProveedor>7</codProveedor>
-    </medicamento>
-    <medicamento>
-        <cod>8</cod>
-        <nombre>medicamento 8</nombre>
-        <precio>5.68</precio>
-        <stock>1000</stock>
-        <stockMaximo>1500</stockMaximo>
-        <stockMinimo>500</stockMinimo>
-        <codProveedor>8</codProveedor>
-    </medicamento>
-    <medicamento>
-        <cod>9</cod>
-        <nombre>medicamento 9</nombre>
-        <precio>5.68</precio>
-        <stock>1000</stock>
-        <stockMaximo>1500</stockMaximo>
-        <stockMinimo>500</stockMinimo>
-        <codProveedor>9</codProveedor>
+        <cod>0</cod>
+        <nombre>Ibu</nombre>
+        <precio>12.0</precio>
+        <stock>0</stock>
+        <stockMaximo>128</stockMaximo>
+        <stockMinimo>5</stockMinimo>
+        <codProveedor>17</codProveedor>
     </medicamento>
 </Medicamentos>

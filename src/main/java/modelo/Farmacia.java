@@ -14,6 +14,14 @@ public class Farmacia implements MedicamentoDAO {
 
 	}
 
+	public List<Medicamento> getMedicamentos() {
+		return medicamentos;
+	}
+
+	public void setMedicamentos(List<Medicamento> medicamentos) {
+		this.medicamentos = medicamentos;
+	}
+
 	@Override
 	public boolean guardar(Medicamento medicamento) {
 
@@ -41,4 +49,6 @@ public class Farmacia implements MedicamentoDAO {
 	public boolean actualizar(Medicamento medicamento) {
 		return false;
 	}
+
+
 }
