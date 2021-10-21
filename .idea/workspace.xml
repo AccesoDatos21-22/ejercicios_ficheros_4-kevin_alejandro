@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca9ff742-7e6c-4ef7-bbf4-757f0b5f619f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/MedicamentoAleatorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/MedicamentoAleatorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/MedicamentoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/MedicamentoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Medicamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/Medicamento.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -88,12 +88,13 @@ public class Medicamento {
 		return IVA;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Medicamento [nombre=" + nombre + ", precio=" + precio + ", cod=" + cod + ", stock=" + stock
-				+ ", stockMaximo=" + stockMaximo + ", stockMinimo=" + stockMinimo + ", codProveedor=" + codProveedor
-				+ "]";
+		return "Código: " + this.getCod() +
+				"\n Nombre: " + this.getNombre() +
+				"\n Precio: " + this.getPrecio() +
+				"\n Stock: " + this.getStock() +
+				"\n Provedoor: " + this.getCod() ;
 	}
-
-
 }

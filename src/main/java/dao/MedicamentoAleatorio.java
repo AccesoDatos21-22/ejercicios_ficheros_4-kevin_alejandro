@@ -16,7 +16,7 @@ public class MedicamentoAleatorio implements MedicamentoDAO {
 	public boolean guardar(Medicamento medicamento) {
 		try (RandomAccessFile raf = new RandomAccessFile(FICHERO, "rw")) {
 			// posiciono en el registro del empleado a insertar
-			raf.seek(medicamento.getCod() * TAM_REGISTRO);
+			raf.seek((long) medicamento.getCod() * TAM_REGISTRO);
 			// Escribo el Código
 			raf.writeInt(medicamento.getCod());
 			// Escribo el nombre
@@ -39,12 +39,17 @@ public class MedicamentoAleatorio implements MedicamentoDAO {
 		}
 
 		System.out.println("Guardado");
-		return false;
+		return true;
 	}
 
 	@Override
-	public Medicamento buscar(String nombre) {
+	public List<Medicamento> buscar(String nombre) {
 		
+		return null;
+	}
+	@Override
+	public Medicamento buscar(int cod) {
+
 		return null;
 	}
 
