@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="ca9ff742-7e6c-4ef7-bbf4-757f0b5f619f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
@@ -11,6 +12,9 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/MedicamentoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/MedicamentoDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Medicamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/Medicamento.java" afterDir="false" />
     </list>
+=======
+    <list default="true" id="0ad61050-a057-422c-8052-89656511fbe8" name="Changes" comment="" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +40,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< Updated upstream
   <component name="ProjectId" id="1zlH4Qn9fAAtDuOaDOy3AUbsxGn" />
+=======
+  <component name="ProjectId" id="1zwqB5iAIvj8lL9iU1X38Ry9jfZ" />
+>>>>>>> Stashed changes
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -44,10 +52,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+<<<<<<< Updated upstream
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+>>>>>>> Stashed changes
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -72,6 +84,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< Updated upstream
       <changelist id="ca9ff742-7e6c-4ef7-bbf4-757f0b5f619f" name="Changes" comment="" />
       <created>1634715563472</created>
       <option name="number" value="Default" />
@@ -96,4 +109,14 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+=======
+      <changelist id="0ad61050-a057-422c-8052-89656511fbe8" name="Changes" comment="" />
+      <created>1635069366045</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1635069366045</updated>
+    </task>
+    <servers />
+  </component>
+>>>>>>> Stashed changes
 </project>

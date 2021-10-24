@@ -1,14 +1,13 @@
 package Main;
 
 import com.thoughtworks.xstream.XStream;
+import dao.JCCPokemonJAXB;
 import dao.MedicamentoAleatorio;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
-import modelo.Empleado;
-import modelo.Empresa;
-import modelo.Medicamento;
+import modelo.*;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
@@ -23,6 +22,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 class Main {
@@ -31,9 +31,10 @@ class Main {
 	private static final String XSTREAM_XML_FILE = "xml/EmpresaXTREAM.xml";
 	private static final String DOM_XML_FILE = "xml/EmpleadosDOM.xml";
 
-	private static MedicamentoAleatorio mA = new MedicamentoAleatorio();
 	private static Scanner sc = new Scanner(System.in);
 	private static Scanner sn = new Scanner(System.in);
+	private static MedicamentoAleatorio mA = new MedicamentoAleatorio();
+	private static JCCPokemonJAXB jccPokemonJAXB  = new JCCPokemonJAXB();
 
 	public static void main(String[] args) {
 		// ejemploJaxb();
@@ -47,13 +48,16 @@ class Main {
 		do {
 			System.out.println("*****\n Intoduzca una opción: *****");
 			System.out.println("1. Añadir un medicamento.");
+			System.out.println("3. Guardar Pokémon en XML.");
+			System.out.println("4. Leer Pokémon del XML.");
+			System.out.println("5. Salir.");
 			opcString =  sc.nextLine();
 
 			if (esNumero(opcString)){
 				opc = Integer.parseInt(opcString);
 
-				switch (opc){
-					case 1:
+				switch (opc) {
+					case 1 -> {
 						System.out.println("Introduzca el nombre del medicamento: ");
 						String nombreMedicamento = sc.nextLine();
 						System.out.println("Introduzca el precio del medicamento: ");
@@ -66,18 +70,39 @@ class Main {
 						int stockMinimo = sn.nextInt();
 						System.out.println("Introduzca el código del proveedor del medicamento: ");
 						int codProveedor = sn.nextInt();
-
 						Medicamento medicamento = new Medicamento(nombreMedicamento,
-								precioMedicamento,0, stock, stockMaximo, stockMinimo, codProveedor);
+								precioMedicamento, 0, stock, stockMaximo, stockMinimo, codProveedor);
 						mA.guardar(medicamento);
-						break;
-					case 2:
+					}
+
+					case 3 -> {
+						List<Pokemon> nuevosPokemos = new ArrayList<Pokemon>();
+						Pokemon pokemon = new Pokemon("Paco", 23, 248, 357, 214, 304, 109, 124);
+						Pokemon pokemon1 = new Pokemon("Paca", 28, 237, 645, 156, 584, 465, 706);
+						Pokemon pokemon2 = new Pokemon("Pika", 31, 167, 456, 405, 210, 543, 640);
+						Pokemon pokemon3 = new Pokemon("Roler", 26, 301, 783, 640, 745, 654, 540);
+
+						nuevosPokemos.add(pokemon);
+						nuevosPokemos.add(pokemon1);
+						nuevosPokemos.add(pokemon2);
+						nuevosPokemos.add(pokemon3);
+
+						JCCPokemon jccPokemon = new JCCPokemon(nuevosPokemos, new Date(), 23);
+
+						if (jccPokemonJAXB.guardar(jccPokemon)){
+							System.out.println("Pokemón guardado correctamente");
+						}else{
+							System.out.println("Error al guardar el Pokemón");
+						}
+					}
+					case 4 -> {
+						System.out.println(jccPokemonJAXB.leer().toString());
+					}
+					case 5 -> {
 						System.out.println("Adiós");
 						System.exit(0);
-						break;
-					default:
-						System.out.println("Opción no válida");
-						break;
+					}
+					default -> System.out.println("Opción no válida");
 				}
 			}else {
 				System.out.println("Introduzca un número válido");
