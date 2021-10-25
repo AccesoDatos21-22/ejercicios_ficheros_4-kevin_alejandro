@@ -50,26 +50,21 @@ class Main {
 	private static final String JAXB_XML_FILE = "xml/EmpresaJAXB.xml";
 	private static final String XSTREAM_XML_FILE = "xml/EmpresaXTREAM.xml";
 	private static final String DOM_XML_FILE = "xml/EmpleadosDOM.xml";
-
+	private static final String DOM_XML_FAR_FILE = "xml/MedicamentosDOM.xml";
 	private static MedicamentoAleatorio mA = new MedicamentoAleatorio();
 
 	public static void main(String[] args) {
-		// ejemploJaxb();
-		// ejemploEscribirDOM();
-		// ejemploLeerDOM();
-		// ejemploEscribirXSTREAM();
-		// ejemploLeerXSTREAM();
 		Medicamento medicamento = new Medicamento("Ibu", 12,0, 0, 128, 5, 021);
-		//mA.guardar(medicamento);
-
+		Farmacia farmacion = new Farmacia();
+		FarmaciaDOM farmDOM = new FarmaciaDOM();
+		Path path = Paths.get(DOM_XML_FAR_FILE);
 
 		List<Medicamento> medicamentos = new ArrayList<>();
 		medicamentos.add(medicamento);
-
-		Farmacia farmacion = new Farmacia();
 		farmacion.setMedicamentos(medicamentos);
-		FarmaciaDOM farmDOM = new FarmaciaDOM();
-		farmDOM.guardar(farmacion);
+
+		farmDOM.leer(path);
+		//farmDOM.guardar(farmacion);
 	}
 
 	private static void ejemploEscribirXSTREAM() {

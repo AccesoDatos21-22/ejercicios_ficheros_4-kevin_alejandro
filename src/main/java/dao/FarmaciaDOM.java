@@ -17,7 +17,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 public class FarmaciaDOM{
-	private static final String DOM_XML_FILE = "xml/MedicamentosDOM.xml";
+
 	/**
 	 * Lee los medicamentos de la farmacia de un fichero xml
 	 * mediante DOM
@@ -31,7 +31,7 @@ public class FarmaciaDOM{
 		try {
 			builder = factory.newDocumentBuilder();
 
-			Document document = builder.parse(new File(DOM_XML_FILE));
+			Document document = builder.parse(new File(farmaciaXML.toString()));
 			document.getDocumentElement().normalize();
 
 			// Obtenemos la lista de nodos con nombre empleado de todo el documento
@@ -103,7 +103,7 @@ public class FarmaciaDOM{
 			// Creamos la fuente XML a partir del documento
 			Source source = new DOMSource(document);
 			// Creamos el resultado en el fichero Empleados.xml
-			Result result = new StreamResult(new java.io.File(DOM_XML_FILE));
+			Result result = new StreamResult(new java.io.File("xml/MedicamentosDOM.xml"));
 			// Obtenemos un TransformerFactory
 			Transformer transformer = TransformerFactory.newInstance().newTransformer();
 			// Le damos formato y realizamos la transformación del documento a fichero
