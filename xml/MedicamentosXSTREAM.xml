@@ -1,0 +1,13 @@
+<Farmacia>
+  <medicamentos>
+    <Medicamento>
+      <nombre>Ibu</nombre>
+      <precio>12.0</precio>
+      <cod>0</cod>
+      <stock>0</stock>
+      <stockMaximo>128</stockMaximo>
+      <stockMinimo>5</stockMinimo>
+      <codProveedor>17</codProveedor>
+    </Medicamento>
+  </medicamentos>
+</Farmacia>

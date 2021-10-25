@@ -65,7 +65,8 @@ class Main {
 		medicamentos.add(medicamento);
 		farmacion.setMedicamentos(medicamentos);
 
-		farXTREAM.guardar(farmacion);
+		//farXTREAM.guardar(farmacion);
+		farXTREAM.leer();
 		//farmDOM.leer(path);
 		//farmDOM.guardar(farmacion);
 	}
