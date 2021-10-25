@@ -25,6 +25,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import dao.FarmaciaDOM;
+import dao.FarmaciaXSTREAM;
 import dao.MedicamentoAleatorio;
 import modelo.Farmacia;
 import modelo.Medicamento;
@@ -56,14 +57,16 @@ class Main {
 	public static void main(String[] args) {
 		Medicamento medicamento = new Medicamento("Ibu", 12,0, 0, 128, 5, 021);
 		Farmacia farmacion = new Farmacia();
-		FarmaciaDOM farmDOM = new FarmaciaDOM();
+		//FarmaciaDOM farmDOM = new FarmaciaDOM();
+		FarmaciaXSTREAM farXTREAM = new FarmaciaXSTREAM();
 		Path path = Paths.get(DOM_XML_FAR_FILE);
 
 		List<Medicamento> medicamentos = new ArrayList<>();
 		medicamentos.add(medicamento);
 		farmacion.setMedicamentos(medicamentos);
 
-		farmDOM.leer(path);
+		farXTREAM.guardar(farmacion);
+		//farmDOM.leer(path);
 		//farmDOM.guardar(farmacion);
 	}
 

@@ -7,7 +7,7 @@
     <list default="true" id="ca9ff742-7e6c-4ef7-bbf4-757f0b5f619f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/FarmaciaDOM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/FarmaciaDOM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/FarmaciaXSTREAM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/FarmaciaXSTREAM.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +87,7 @@
       <workItem from="1634715565092" duration="2608000" />
       <workItem from="1634720466021" duration="655000" />
       <workItem from="1634811965665" duration="3863000" />
-      <workItem from="1635143343747" duration="2220000" />
+      <workItem from="1635143343747" duration="5208000" />
     </task>
     <servers />
   </component>
