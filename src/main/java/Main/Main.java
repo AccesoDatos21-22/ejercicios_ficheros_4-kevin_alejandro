@@ -57,7 +57,7 @@ class Main {
 				opc = Integer.parseInt(opcString);
 
 				switch (opc) {
-					case 1 -> {
+					case 1 :
 						System.out.println("Introduzca el nombre del medicamento: ");
 						String nombreMedicamento = sc.nextLine();
 						System.out.println("Introduzca el precio del medicamento: ");
@@ -73,9 +73,9 @@ class Main {
 						Medicamento medicamento = new Medicamento(nombreMedicamento,
 								precioMedicamento, 0, stock, stockMaximo, stockMinimo, codProveedor);
 						mA.guardar(medicamento);
-					}
+						break;
 
-					case 3 -> {
+					case 3 :
 						List<Pokemon> nuevosPokemos = new ArrayList<Pokemon>();
 						Pokemon pokemon = new Pokemon("Paco", 23, 248, 357, 214, 304, 109, 124);
 						Pokemon pokemon1 = new Pokemon("Paca", 28, 237, 645, 156, 584, 465, 706);
@@ -94,15 +94,17 @@ class Main {
 						}else{
 							System.out.println("Error al guardar el Pokemón");
 						}
-					}
-					case 4 -> {
+						break;
+					case 4 :
 						System.out.println(jccPokemonJAXB.leer().toString());
-					}
-					case 5 -> {
+						break;
+					case 5:
 						System.out.println("Adiós");
 						System.exit(0);
-					}
-					default -> System.out.println("Opción no válida");
+						break;
+					default:
+						System.out.println("Opción no válida");
+						break;
 				}
 			}else {
 				System.out.println("Introduzca un número válido");
