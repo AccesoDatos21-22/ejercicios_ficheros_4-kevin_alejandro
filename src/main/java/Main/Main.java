@@ -51,7 +51,7 @@ class Main {
 			System.out.println("1. Añadir un medicamento.");
 			System.out.println("3. Guardar Pokémon en XML.");
 			System.out.println("4. Leer Pokémon del XML.");
-			System.out.println("5. Leer Pokémon del XML (Api).");
+			System.out.println("5. Mostrar el tiempo del XML (Api).");
 			System.out.println("6. Salir.");
 			opcString =  sc.nextLine();
 
