@@ -3,6 +3,7 @@ package Main;
 import com.thoughtworks.xstream.XStream;
 import dao.JCCPokemonJAXB;
 import dao.MedicamentoAleatorio;
+import dao.WeatherDAOImpl;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
@@ -50,7 +51,8 @@ class Main {
 			System.out.println("1. Añadir un medicamento.");
 			System.out.println("3. Guardar Pokémon en XML.");
 			System.out.println("4. Leer Pokémon del XML.");
-			System.out.println("5. Salir.");
+			System.out.println("5. Leer Pokémon del XML (Api).");
+			System.out.println("6. Salir.");
 			opcString =  sc.nextLine();
 
 			if (esNumero(opcString)){
@@ -99,6 +101,14 @@ class Main {
 						System.out.println(jccPokemonJAXB.leer().toString());
 						break;
 					case 5:
+						WeatherDAOImpl weatherDAOImpl = new WeatherDAOImpl();
+						try {
+							weatherDAOImpl.leerTiempo();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+						break;
+					case 6:
 						System.out.println("Adiós");
 						System.exit(0);
 						break;
@@ -110,7 +120,7 @@ class Main {
 				System.out.println("Introduzca un número válido");
 			}
 
-		}while (opc != 5);
+		}while (opc != 6);
 	}
 
 	private static boolean esNumero(String numero) {
