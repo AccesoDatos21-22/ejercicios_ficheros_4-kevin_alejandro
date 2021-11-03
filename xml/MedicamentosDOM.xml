@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Medicamentos>
+    <medicamento>
+        <cod>0</cod>
+        <nombre>Ibu</nombre>
+        <precio>12.0</precio>
+        <stock>0</stock>
+        <stockMaximo>128</stockMaximo>
+        <stockMinimo>5</stockMinimo>
+        <codProveedor>17</codProveedor>
+    </medicamento>
+</Medicamentos>
