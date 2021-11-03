@@ -1,43 +1,30 @@
 package Main;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Date;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Result;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-
-import org.w3c.dom.DOMImplementation;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Text;
-import org.xml.sax.SAXException;
-
 import com.thoughtworks.xstream.XStream;
-
+import dao.JCCPokemonJAXB;
+import dao.MedicamentoAleatorio;
+import dao.WeatherDAOImpl;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
-import modelo.Empleado;
-import modelo.Empresa;
+import modelo.*;
+import org.w3c.dom.*;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.*;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
 
 class Main {
 
@@ -45,14 +32,101 @@ class Main {
 	private static final String XSTREAM_XML_FILE = "xml/EmpresaXTREAM.xml";
 	private static final String DOM_XML_FILE = "xml/EmpleadosDOM.xml";
 
+	private static Scanner sc = new Scanner(System.in);
+	private static Scanner sn = new Scanner(System.in);
+	private static MedicamentoAleatorio mA = new MedicamentoAleatorio();
+	private static JCCPokemonJAXB jccPokemonJAXB = new JCCPokemonJAXB();
+
 	public static void main(String[] args) {
 		// ejemploJaxb();
 		// ejemploEscribirDOM();
 		// ejemploLeerDOM();
 		// ejemploEscribirXSTREAM();
 		// ejemploLeerXSTREAM();
-		
-		System.out.println("ddd");
+
+		int opc = 0;
+		String opcString = "";
+
+		do {
+			System.out.println("*****\n Intoduzca una opción: *****");
+			System.out.println("1. Añadir un medicamento.");
+			System.out.println("3. Guardar Pokémon en XML.");
+			System.out.println("4. Leer Pokémon del XML.");
+			System.out.println("5. Mostrar el tiempo del XML (Api).");
+			System.out.println("6. Salir.");
+			opcString = sc.nextLine();
+
+			if (esNumero(opcString)) {
+				opc = Integer.parseInt(opcString);
+
+				switch (opc) {
+				case 1:
+					System.out.println("Introduzca el nombre del medicamento: ");
+					String nombreMedicamento = sc.nextLine();
+					System.out.println("Introduzca el precio del medicamento: ");
+					double precioMedicamento = sn.nextDouble();
+					System.out.println("Introduzca el stock actual del medicamento: ");
+					int stock = sn.nextInt();
+					System.out.println("Introduzca el stock máximo del medicamento: ");
+					int stockMaximo = sn.nextInt();
+					System.out.println("Introduzca el stock mínimo del medicamento: ");
+					int stockMinimo = sn.nextInt();
+					System.out.println("Introduzca el código del proveedor del medicamento: ");
+					int codProveedor = sn.nextInt();
+					Medicamento medicamento = new Medicamento(nombreMedicamento, precioMedicamento, 0, stock,
+							stockMaximo, stockMinimo, codProveedor);
+					mA.guardar(medicamento);
+					break;
+
+				case 3:
+					List<Pokemon> nuevosPokemos = new ArrayList<Pokemon>();
+					Pokemon pokemon = new Pokemon("Paco", 23, 248, 357, 214, 304, 109, 124);
+					Pokemon pokemon1 = new Pokemon("Paca", 28, 237, 645, 156, 584, 465, 706);
+					Pokemon pokemon2 = new Pokemon("Pika", 31, 167, 456, 405, 210, 543, 640);
+					Pokemon pokemon3 = new Pokemon("Roler", 26, 301, 783, 640, 745, 654, 540);
+
+					nuevosPokemos.add(pokemon);
+					nuevosPokemos.add(pokemon1);
+					nuevosPokemos.add(pokemon2);
+					nuevosPokemos.add(pokemon3);
+
+					JCCPokemon jccPokemon = new JCCPokemon(nuevosPokemos, new Date(), 23);
+
+					if (jccPokemonJAXB.guardar(jccPokemon)) {
+						System.out.println("Pokemón guardado correctamente");
+					} else {
+						System.out.println("Error al guardar el Pokemón");
+					}
+					break;
+				case 4:
+					System.out.println(jccPokemonJAXB.leer().toString());
+					break;
+				case 5:
+					WeatherDAOImpl weatherDAOImpl = new WeatherDAOImpl();
+					try {
+						weatherDAOImpl.leerTiempo();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					break;
+				case 6:
+					System.out.println("Adiós");
+					System.exit(0);
+					break;
+				default:
+					System.out.println("Opción no válida");
+					break;
+				}
+			} else {
+				System.out.println("Introduzca un número válido");
+			}
+
+		} while (opc != 6);
+	}
+
+	private static boolean esNumero(String numero) {
+		return numero.chars().allMatch(Character::isDigit);
+
 	}
 
 	private static void ejemploEscribirXSTREAM() {
@@ -62,7 +136,7 @@ class Main {
 			System.out.println("Comienza el proceso de creación del fichero a XML...");
 
 			XStream xstream = new XStream();
-			
+
 			long time = System.currentTimeMillis();
 			System.out.println("Inicio: " + new Date(time));
 			Empresa cc = new Empresa();
@@ -86,7 +160,7 @@ class Main {
 			}
 
 			cc.setEmpleados(alCU);
-			
+
 			// cambiar de nombre a las etiquetas XML
 			xstream.alias("Empleado", Empleado.class);
 			xstream.alias("Empresa", Empresa.class);
@@ -104,27 +178,26 @@ class Main {
 
 	private static void ejemploLeerXSTREAM() {
 		Empresa empresa = new Empresa();
-        try {
-            Class<?>[] classes = new Class[] { Empresa.class, Empleado.class };
+		try {
+			Class<?>[] classes = new Class[] { Empresa.class, Empleado.class };
 
-            XStream xstream = new XStream();
-            //XStream.setupDefaultSecurity(xstream);
-            //xstream.allowTypes(classes);
-           
-            xstream.alias("Empresa", Empresa.class);
-            xstream.alias("Empleado", Empleado.class);
-            xstream.addImplicitCollection(Empresa.class, "Empresa");
+			XStream xstream = new XStream();
+			// XStream.setupDefaultSecurity(xstream);
+			// xstream.allowTypes(classes);
 
-            empresa = (Empresa) xstream
-                    .fromXML(new FileInputStream(XSTREAM_XML_FILE));
+			xstream.alias("Empresa", Empresa.class);
+			xstream.alias("Empleado", Empleado.class);
+			xstream.addImplicitCollection(Empresa.class, "Empresa");
 
-            for(Empleado e: empresa.getEmpleados()) {
-            	System.out.println(e);
-            }
+			empresa = (Empresa) xstream.fromXML(new FileInputStream(XSTREAM_XML_FILE));
 
-        } catch (FileNotFoundException e) {
-            System.err.println("Error: " + e);
-        }
+			for (Empleado e : empresa.getEmpleados()) {
+				System.out.println(e);
+			}
+
+		} catch (FileNotFoundException e) {
+			System.err.println("Error: " + e);
+		}
 
 	}
 
