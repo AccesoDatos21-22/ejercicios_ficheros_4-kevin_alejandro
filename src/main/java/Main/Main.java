@@ -87,8 +87,9 @@ class Main {
 			System.out.println("*****\n Intoduzca una opción: *****");
 			System.out.println("1. Añadir un medicamento.");
 			System.out.println("3. Guardar Pokémon en XML.");
-			System.out.println("4. Guardar y Leer información DOM.");
+			System.out.println("4. Guardar y Leer DOM.");
 			System.out.println("5. Leer Pokémon del XML.");
+			System.out.println("6. Guardar y Leer XSTREAM.");
 			System.out.println("9. Mostrar el tiempo del XML (Api).");
 			System.out.println("10. Salir.");
 			opcString = sc.nextLine();
